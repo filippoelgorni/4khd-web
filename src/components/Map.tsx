@@ -31,7 +31,7 @@ export function Map({ style }: { style?: React.CSSProperties }) {
   useEffect(() => {
     //  for f in ./public/data/*.csv; do sed -i ''  '1d' $f; done delete first line in csv bash
 
-    const datasetPromises = range(days).map((day) => {
+    const datasetPromises = range(1, days).map((day) => {
       const path = `./../data/stats_day${day}.csv`;
       return d3.csv(path).then((res) => {
         const typedRes = compact(
