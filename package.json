@@ -15,6 +15,7 @@
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@types/react-simple-maps": "^1.0.8",
+    "@visx/responsive": "^2.10.0",
     "d3": "^7.6.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
