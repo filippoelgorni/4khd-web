@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { range } from "d3";
 import * as d3 from "d3";
 import {
@@ -7,16 +7,18 @@ import {
   Geography,
   Line,
   Marker,
+  ZoomableGroup,
 } from "react-simple-maps";
 import { compact } from "lodash";
 import ParentSize from "@visx/responsive/lib/components/ParentSizeModern";
-import "./style.css";
 import moment from "moment";
+
+import "./style.css";
 
 type Datum = { longitude: number; latitude: number; altitude: number };
 type Dataset = Datum[];
 
-export function Map({ style }: { style?: React.CSSProperties }) {
+export const Map = memo(({ style }: { style?: React.CSSProperties }) => {
   const red = "#ff6868";
 
   const firstDay = moment(new Date("2022-05-31T18:00:00.000+01:00"));
@@ -58,16 +60,15 @@ export function Map({ style }: { style?: React.CSSProperties }) {
   }, [days]);
 
   function compressDataset<A>(dataset: A[], granularity: number) {
-    return dataset.filter((d, i) => i % granularity === 0);
+    return dataset.filter((_, i) => (i + 1) % granularity === 0);
   }
 
-  const geoUrl =
-    "https://raw.githubusercontent.com/viniciusparede/world-map-geojson/main/world.json";
+  const geoUrl = "./../geo/topo.json";
 
   const coordinates = dataset.map(
     (d) => [d.longitude, d.latitude] as [number, number]
   );
-  const compressedCoordinates = compressDataset(coordinates, 4);
+  const compressedCoordinates = compressDataset(coordinates, 200);
 
   const currentPosition =
     compressedCoordinates[compressedCoordinates.length - 1];
@@ -85,23 +86,21 @@ export function Map({ style }: { style?: React.CSSProperties }) {
                     scale: 1600,
                   }}
                 >
-                  <Geographies geography={geoUrl}>
-                    {({ geographies }) =>
-                      geographies.map((geo) => (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill="white"
-                          stroke="black"
-                          strokeWidth={1}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      ))
-                    }
-                  </Geographies>
+                  <ZoomableGroup>
+                    <Geographies geography={geoUrl}>
+                      {({ geographies }) =>
+                        geographies.map((geo) => (
+                          <Geography
+                            key={geo.rsmKey}
+                            geography={geo}
+                            fill="white"
+                            stroke="black"
+                            strokeWidth={1}
+                          />
+                        ))
+                      }
+                    </Geographies>
 
-                  <>
                     <Line
                       coordinates={compressedCoordinates}
                       stroke={red}
@@ -128,7 +127,7 @@ export function Map({ style }: { style?: React.CSSProperties }) {
                         <circle r={5} fill={"white"} />
                       </Marker>
                     )}
-                  </>
+                  </ZoomableGroup>
                 </ComposableMap>
               </svg>
             )
@@ -137,4 +136,4 @@ export function Map({ style }: { style?: React.CSSProperties }) {
       </ParentSize>
     </div>
   );
-}
+});

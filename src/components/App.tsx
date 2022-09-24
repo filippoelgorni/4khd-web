@@ -16,20 +16,15 @@ function App() {
       }}
     >
       <Map style={{ height: "inherit", width: "inherit" }} />
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: 200,
-          height: "100%",
-          backgroundColor: "white",
-          borderRight: "2px solid black",
-        }}
-      >
-        <Logo style={{ width: "100%" }} />
+      <div className="sidebar">
+        <Logo logo="4khd" className="logo" />
         <div
-          style={{ fontFamily: "helvetica", padding: 20, overflow: "hidden" }}
+          style={{
+            fontFamily: "helvetica",
+            padding: 20,
+            overflow: "hidden",
+            textJustify: "inter-word",
+          }}
         >
           {`Who is Igor? Igor is a digital avatar born from the minds of 4KHD, a
           collective that plays with irony, the digital domain, and sports. He
@@ -40,6 +35,7 @@ function App() {
           the daily bulletin on twitter to know his daily stats, along with
           other fun bots. This is “Cyclobrowsing”.`}
         </div>
+        <Logo logo="cyclobrowsing" className="cyclobrowsing" />
       </div>
     </div>
   );

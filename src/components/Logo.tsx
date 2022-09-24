@@ -1,11 +1,19 @@
 import React from "react";
 
-export function Logo({ style }: { style?: React.CSSProperties }) {
-  const url = "./../assets/logo.jpg";
+export function Logo({
+  logo,
+  style,
+  className,
+}: {
+  logo: "cyclobrowsing" | "4khd";
+  style?: React.CSSProperties;
+  className?: string;
+}) {
+  const url = `./../assets/${logo}.png`;
 
   return (
-    <div style={style}>
-      <img src={url} alt="4kHD" style={{ width: "inherit" }} />
+    <div style={style} className={className}>
+      <img src={url} alt={logo} style={{ width: "inherit" }} />
     </div>
   );
 }

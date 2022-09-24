@@ -48,3 +48,37 @@ html {
   -moz-animation: pulse 3s infinite ease-in-out;
   animation: pulse 3s infinite ease-in-out;
 }
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  border-right: 2px solid black;
+  overflow-y: auto;
+}
+
+.logo {
+  width: 100%;
+}
+.cyclobrowsing {
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    top: initial;
+    bottom: 0;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    border-top: 2px solid black;
+    border-right: none;
+  }
+
+  .logo {
+    display: none;
+  }
+}
