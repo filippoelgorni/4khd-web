@@ -17,16 +17,17 @@ function App() {
     >
       <Map style={{ height: "inherit", width: "inherit" }} />
       <div className="sidebar">
-        <Logo logo="4khd" className="logo" />
-        <div
-          style={{
-            fontFamily: "helvetica",
-            padding: 20,
-            overflow: "hidden",
-            textJustify: "inter-word",
-          }}
-        >
-          {`Who is Igor? Igor is a digital avatar born from the minds of 4KHD, a
+        <div className="sidebar-content">
+          <Logo logo="4khd" className="logo" />
+          <div
+            style={{
+              fontFamily: "helvetica",
+              padding: 20,
+              overflow: "hidden",
+              textJustify: "inter-word",
+            }}
+          >
+            {`Who is Igor? Igor is a digital avatar born from the minds of 4KHD, a
           collective that plays with irony, the digital domain, and sports. He
           has decided to travel with his bike in a scripted fashion, with only
           code telling him where to go. His mission is that of bringing a new
@@ -34,8 +35,9 @@ function App() {
           Igor? Our digital friend still cycling around Europe, and you can read
           the daily bulletin on twitter to know his daily stats, along with
           other fun bots. This is “Cyclobrowsing”.`}
+          </div>
+          <Logo logo="cyclobrowsing" className="cyclobrowsing" />
         </div>
-        <Logo logo="cyclobrowsing" className="cyclobrowsing" />
       </div>
     </div>
   );

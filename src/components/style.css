@@ -69,10 +69,14 @@ html {
   width: 100%;
 }
 
+.sidebar-content {
+  overflow-y: auto;
+}
+
 @media screen and (max-width: 800px) {
   .sidebar {
     flex-direction: column-reverse;
-    position: fixed;
+    position: sticky;
     top: initial;
     bottom: 0;
     height: 200px;
