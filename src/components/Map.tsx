@@ -55,7 +55,7 @@ export function Map({ style }: { style?: React.CSSProperties }) {
     Promise.all(datasetPromises)
       .then((res) => compact(res).flat())
       .then((res) => setDataset(res));
-  }, []);
+  }, [days]);
 
   function compressDataset<A>(dataset: A[], granularity: number) {
     return dataset.filter((d, i) => i % granularity === 0);
