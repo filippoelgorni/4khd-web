@@ -77,13 +77,17 @@ export const Map = memo(({ style }: { style?: React.CSSProperties }) => {
     <div style={style}>
       <ParentSize>
         {({ width, height }) => {
+          const isMobile = width <= 800;
+
+          const scale = isMobile ? 2200 : 1600;
+          const verticalTilt = isMobile ? 35 : 44;
           return (
             !isLoading && (
               <svg width={width} height={height}>
                 <ComposableMap
                   projectionConfig={{
-                    center: [12, 44],
-                    scale: 1600,
+                    center: [12, verticalTilt],
+                    scale: scale,
                   }}
                 >
                   <ZoomableGroup>

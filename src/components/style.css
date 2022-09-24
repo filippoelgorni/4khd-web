@@ -58,6 +58,8 @@ html {
   background-color: white;
   border-right: 2px solid black;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -69,9 +71,10 @@ html {
 
 @media screen and (max-width: 800px) {
   .sidebar {
+    flex-direction: column-reverse;
+    position: fixed;
     top: initial;
     bottom: 0;
-    left: 0;
     height: 200px;
     width: 100%;
     border-top: 2px solid black;
