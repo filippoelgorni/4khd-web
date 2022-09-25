@@ -67,15 +67,16 @@ html {
 }
 .cyclobrowsing {
   width: 100%;
+  display: none;
 }
 
 .sidebar-content {
   overflow-y: auto;
+  text-align: justify;
 }
 
 @media screen and (max-width: 800px) {
   .sidebar {
-    flex-direction: column-reverse;
     position: sticky;
     top: initial;
     bottom: 0;
@@ -83,6 +84,12 @@ html {
     width: 100%;
     border-top: 2px solid black;
     border-right: none;
+    padding-top: 10px;
+  }
+
+  .cyclobrowsing {
+    width: 100%;
+    display: initial;
   }
 
   .logo {

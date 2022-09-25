@@ -99,7 +99,9 @@ export const Map = memo(({ style }: { style?: React.CSSProperties }) => {
                             geography={geo}
                             fill="white"
                             stroke="black"
-                            strokeWidth={1}
+                            strokeWidth={1.5}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         ))
                       }
