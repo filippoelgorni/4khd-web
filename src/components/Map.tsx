@@ -69,11 +69,6 @@ export const Map = memo(
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
-                      {currentPosition && (
-                        <Marker coordinates={currentPosition}>
-                          <circle r={20} fill={red} className="today" />
-                        </Marker>
-                      )}
                       <Line
                         coordinates={coordinates}
                         stroke="white"
@@ -88,9 +83,14 @@ export const Map = memo(
                         </Marker>
                       )}
                       {currentPosition && (
-                        <Marker coordinates={currentPosition}>
-                          <circle r={3} fill={"tomato"} />
-                        </Marker>
+                        <>
+                          <Marker coordinates={currentPosition}>
+                            <circle r={3} fill={red} />
+                          </Marker>
+                          <Marker coordinates={currentPosition}>
+                            <circle r={20} fill={red} className="today" />
+                          </Marker>
+                        </>
                       )}
                     </ZoomableGroup>
                   </ComposableMap>
