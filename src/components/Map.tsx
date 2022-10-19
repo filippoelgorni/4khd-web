@@ -1,6 +1,5 @@
-import React, { memo, useEffect, useState } from "react";
-import { range } from "d3";
-import * as d3 from "d3";
+import React, { memo } from "react";
+
 import {
   ComposableMap,
   Geographies,
@@ -9,137 +8,98 @@ import {
   Marker,
   ZoomableGroup,
 } from "react-simple-maps";
-import { compact } from "lodash";
 import ParentSize from "@visx/responsive/lib/components/ParentSizeModern";
-import moment from "moment";
 
 import "./style.css";
 
-type Datum = { longitude: number; latitude: number; altitude: number };
-type Dataset = Datum[];
+export const Map = memo(
+  ({
+    style,
+    coordinates,
+  }: {
+    coordinates: [number, number][];
+    style?: React.CSSProperties;
+  }) => {
+    const red = "#ff6868";
+    const geoUrl = "./../geo/topo.json";
 
-export const Map = memo(({ style }: { style?: React.CSSProperties }) => {
-  const red = "#ff6868";
+    const isLoading = !coordinates;
 
-  const firstDay = moment(new Date("2022-05-31T18:00:00.000+01:00"));
-  const today = moment();
+    const currentPosition = coordinates[coordinates.length - 1];
 
-  const days = today.diff(firstDay, "days");
+    return (
+      <div style={style}>
+        <ParentSize>
+          {({ width, height }) => {
+            const isMobile = width <= 800;
 
-  const [dataset, setDataset] = useState<Dataset>([]);
+            const scale = isMobile ? 2200 : 1600;
+            const verticalTilt = isMobile ? 35 : 44;
+            return (
+              !isLoading && (
+                <svg width={width} height={height}>
+                  <ComposableMap
+                    projectionConfig={{
+                      center: [12, verticalTilt],
+                      scale: scale,
+                    }}
+                  >
+                    <ZoomableGroup>
+                      <Geographies geography={geoUrl}>
+                        {({ geographies }) =>
+                          geographies.map((geo) => (
+                            <Geography
+                              key={geo.rsmKey}
+                              geography={geo}
+                              fill="white"
+                              stroke="black"
+                              strokeWidth={1.5}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          ))
+                        }
+                      </Geographies>
 
-  const isLoading = !dataset;
-
-  useEffect(() => {
-    //  for f in ./public/data/*.csv; do sed -i ''  '1d' $f; done delete first line in csv bash
-
-    const datasetPromises = range(1, days).map((day) => {
-      const path = `./../data/stats_day${day}.csv`;
-      return d3.csv(path).then((res) => {
-        const typedRes = compact(
-          res.map((d) => {
-            const datum =
-              d.latitude && d.longitude && d.altitude
-                ? {
-                    latitude: parseFloat(d.latitude),
-                    longitude: parseFloat(d.longitude),
-                    altitude: parseFloat(d.altitude),
-                  }
-                : undefined;
-
-            return datum as Datum | undefined;
-          })
-        );
-        return typedRes as Dataset;
-      });
-    });
-
-    Promise.all(datasetPromises)
-      .then((res) => compact(res).flat())
-      .then((res) => setDataset(res));
-  }, [days]);
-
-  function compressDataset<A>(dataset: A[], granularity: number) {
-    return dataset.filter((_, i) => (i + 1) % granularity === 0);
+                      <Line
+                        coordinates={coordinates}
+                        stroke={red}
+                        strokeWidth={5.5}
+                        opacity={1}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      {currentPosition && (
+                        <Marker coordinates={currentPosition}>
+                          <circle r={20} fill={red} className="today" />
+                        </Marker>
+                      )}
+                      <Line
+                        coordinates={coordinates}
+                        stroke="white"
+                        strokeWidth={3}
+                        opacity={1}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      {currentPosition && (
+                        <Marker coordinates={currentPosition}>
+                          <circle r={5} fill={"white"} />
+                        </Marker>
+                      )}
+                      {currentPosition && (
+                        <Marker coordinates={currentPosition}>
+                          <circle r={3} fill={"tomato"} />
+                        </Marker>
+                      )}
+                    </ZoomableGroup>
+                  </ComposableMap>
+                </svg>
+              )
+            );
+          }}
+        </ParentSize>
+      </div>
+    );
   }
-
-  const geoUrl = "./../geo/topo.json";
-
-  const coordinates = dataset.map(
-    (d) => [d.longitude, d.latitude] as [number, number]
-  );
-  const compressedCoordinates = compressDataset(coordinates, 200);
-
-  const currentPosition =
-    compressedCoordinates[compressedCoordinates.length - 1];
-
-  return (
-    <div style={style}>
-      <ParentSize>
-        {({ width, height }) => {
-          const isMobile = width <= 800;
-
-          const scale = isMobile ? 2200 : 1600;
-          const verticalTilt = isMobile ? 35 : 44;
-          return (
-            !isLoading && (
-              <svg width={width} height={height}>
-                <ComposableMap
-                  projectionConfig={{
-                    center: [12, verticalTilt],
-                    scale: scale,
-                  }}
-                >
-                  <ZoomableGroup>
-                    <Geographies geography={geoUrl}>
-                      {({ geographies }) =>
-                        geographies.map((geo) => (
-                          <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            fill="white"
-                            stroke="black"
-                            strokeWidth={1.5}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        ))
-                      }
-                    </Geographies>
-
-                    <Line
-                      coordinates={compressedCoordinates}
-                      stroke={red}
-                      strokeWidth={5.5}
-                      opacity={1}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {currentPosition && (
-                      <Marker coordinates={currentPosition}>
-                        <circle r={20} fill={red} className="today" />
-                      </Marker>
-                    )}
-                    <Line
-                      coordinates={compressedCoordinates}
-                      stroke="white"
-                      strokeWidth={3}
-                      opacity={1}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {currentPosition && (
-                      <Marker coordinates={currentPosition}>
-                        <circle r={5} fill={"white"} />
-                      </Marker>
-                    )}
-                  </ZoomableGroup>
-                </ComposableMap>
-              </svg>
-            )
-          );
-        }}
-      </ParentSize>
-    </div>
-  );
-});
+);

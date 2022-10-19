@@ -5,6 +5,11 @@ html {
   margin: 0;
 }
 
+* {
+  font-family: "Space Mono";
+  letter-spacing: -1px;
+}
+
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale(0.9);
@@ -53,7 +58,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 400px;
   height: 100%;
   background-color: white;
   border-right: 2px solid black;
@@ -72,7 +77,6 @@ html {
 
 .sidebar-content {
   overflow-y: auto;
-  text-align: justify;
 }
 
 @media screen and (max-width: 800px) {
