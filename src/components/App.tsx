@@ -76,7 +76,7 @@ function App() {
           <Logo logo="cyclobrowsing" className="cyclobrowsing" />
           <div
             style={{
-              padding: 20,
+              padding: 30,
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
