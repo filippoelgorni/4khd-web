@@ -20,7 +20,7 @@ export const Map = memo(
     coordinates: [number, number][];
     style?: React.CSSProperties;
   }) => {
-    const red = "#ff6868";
+    const red = "#ec1556";
     const geoUrl = "./../geo/topo.json";
 
     const isLoading = !coordinates;
