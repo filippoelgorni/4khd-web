@@ -158,22 +158,42 @@ function App() {
                 </div>
               )}
             </div>
-            {/* <div style={{ paddingTop: 30 }}>
-              {`MI CHIAMO IGOR COLOMBO E STO PER COMINCIARE UN VIAGGIO INSENSATO.\n
-             PEDALERÒ OGNI GIORNO PER RAGGIUNGERE NUOVE COORDINATE…LATITUDINI E LONGITUDINI. NO LIMITE E NO DIREZIONE. \n
-             IL MIO UNICO OBIETTIVO È SPINGERE, E SPINGERÒ FINO A QUANDO LA STANCHEZZA NON MI INTORPIDIRÀ LE DITA DEI PIEDI. MI TRASCINERÒ CICLABILE DOPO CICLABILE E POTRETE SEGUIRMI IN QUESTO GESTO….CORRERE CON ME…VIRTUALMENTE\n
-             LO SO, IL MIO ASPETTO MI CONTRADDICE. MA SPERO CHE IL MIO VIAGGIO SARÀ UN ESEMPIO DEL CONTRARIO: VOGLIO CHE CON ME LIBERIATE IL CICLISMO DELLA CHADNESS CHE LO PERSEGUITA…DA TANTI ANNI E IN TANTI KILOMETRI HO INCONTRATO BIKERS TALENTUOSI MA TROPPO PIENI DI SE. UN NUOVO CYCLING È:NO CHA\n
-             NO TUTINA\n
-             NO FOTO CON LA MARCIA PIÙ ALTA\n
-             NO STRAVA BRAGGING\n
-             NO SFIDE SE NON CON ME STESSO\n
-             NO CHAD \n
-             NO TUTINA\n
-             LONG DISTANCE MULTI-RYTHM\n
-             VOGLIO SOLO SENTIRE SENTIRE IL VENTO CHE GONFIA LA MIA MAGLIA…SE MI RALLENTA VORRÀ DIRE CHE DOVRÒ PEDALARE PIÙ FORTE…`
-                .toString()
-                .toLocaleLowerCase()}
-            </div> */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>Current position: </div>
+              {dataset.length && (
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div style={{ fontWeight: 700 }}>
+                    {`${dataset[dataset.length - 1].latitude} (lat)`}
+                  </div>
+                  <div style={{ fontWeight: 700 }}>
+                    {`${dataset[dataset.length - 1].longitude} (lon)`}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div
+              style={{
+                paddingTop: 60,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <a style={{ width: "inherit" }} href="./../assets/manifesto.jpg">
+                <img
+                  style={{ width: "inherit" }}
+                  src="./../assets/manifesto.jpg"
+                  alt="manifesto"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
