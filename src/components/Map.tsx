@@ -12,6 +12,8 @@ import ParentSize from "@visx/responsive/lib/components/ParentSizeModern";
 
 import "./style.css";
 
+export const RED = "#ec1556";
+
 export const Map = memo(
   ({
     style,
@@ -20,7 +22,6 @@ export const Map = memo(
     coordinates: [number, number][];
     style?: React.CSSProperties;
   }) => {
-    const red = "#ec1556";
     const geoUrl = "./../geo/topo.json";
 
     const isLoading = !coordinates;
@@ -63,7 +64,7 @@ export const Map = memo(
 
                       <Line
                         coordinates={coordinates}
-                        stroke={red}
+                        stroke={RED}
                         strokeWidth={5.5}
                         opacity={1}
                         strokeLinecap="round"
@@ -85,10 +86,10 @@ export const Map = memo(
                       {currentPosition && (
                         <>
                           <Marker coordinates={currentPosition}>
-                            <circle r={3} fill={red} />
+                            <circle r={3} fill={RED} />
                           </Marker>
                           <Marker coordinates={currentPosition}>
-                            <circle r={20} fill={red} className="today" />
+                            <circle r={20} fill={RED} className="today" />
                           </Marker>
                         </>
                       )}
