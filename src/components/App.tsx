@@ -28,23 +28,28 @@ function App() {
 
     const datasetPromises = range(1, days).map((day) => {
       const path = `./../data/stats_day${day}.csv`;
-      return csv(path).then((res) => {
-        const typedRes = compact(
-          res.map((d) => {
-            const datum =
-              d.latitude && d.longitude && d.altitude
-                ? {
-                    latitude: parseFloat(d.latitude),
-                    longitude: parseFloat(d.longitude),
-                    altitude: parseFloat(d.altitude),
-                  }
-                : undefined;
+      return csv(path)
+        .then((res) => {
+          const typedRes = compact(
+            res.map((d) => {
+              const datum =
+                d.latitude && d.longitude && d.altitude
+                  ? {
+                      latitude: parseFloat(d.latitude),
+                      longitude: parseFloat(d.longitude),
+                      altitude: parseFloat(d.altitude),
+                    }
+                  : undefined;
 
-            return datum as Datum | undefined;
-          })
-        );
-        return typedRes as Dataset;
-      });
+              return datum as Datum | undefined;
+            })
+          );
+          return typedRes as Dataset;
+        })
+        .catch((error) => {
+          console.error(error);
+          return [];
+        });
     });
 
     Promise.all(datasetPromises)
