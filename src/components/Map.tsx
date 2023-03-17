@@ -34,10 +34,8 @@ export const Map = memo(
       <div style={style} className={className}>
         <ParentSize>
           {({ width, height }) => {
-            const isMobile = width <= 800;
-
-            const scale = false ? 2200 : 1600;
-            const verticalTilt = false ? 35 : 44;
+            const scale = 1600;
+            const verticalTilt = 44;
             return (
               !isLoading && (
                 <svg width={width} height={height}>
