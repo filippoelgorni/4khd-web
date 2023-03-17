@@ -9,8 +9,8 @@ html {
   font-family: "Arial";
   letter-spacing: 0.3px;
   --red: #ec1556;
-  --red-lighter: #ff99b8;
-  --gray: #797b84;
+  --red-lighter: #efefef;
+  --gray: #a6a6a6;
 }
 
 @-webkit-keyframes pulse {
@@ -52,6 +52,19 @@ a:hover {
   text-decoration: underline;
 }
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  boxsizing: border-box;
+  overflowx: hidden;
+  overflowy: hidden;
+}
+
+.map {
+  height: inherit;
+  width: inherit;
+}
+
 .today {
   width: 200px;
   height: 200px;
@@ -73,30 +86,24 @@ a:hover {
   background-color: white;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid var(--red); */
-  /* border-radius: 100px;\ */
   -webkit-box-shadow: -4px -5px 50px -1px rgba(0, 0, 0, 0.2);
   box-shadow: -4px -5px 50px -1px rgba(0, 0, 0, 0.2);
 }
 
-.logo {
-  height: 75px;
-  width: 100%;
+.clickable-invisible-sidebar {
+  position: absolute;
+  left: 350px;
+  width: 50px;
+  height: 100%;
+  cursor: pointer;
 }
 
-.sidebar-title {
-  height: 75px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+.bottom-info {
+  position: absolute;
+  /* padding-top: 85vh; */
 }
 
-.cyclobrowsing {
-  width: 100%;
-  display: none;
-}
-
-.sidebar-content {
+.info-content {
   overflow-y: auto;
 }
 
@@ -113,7 +120,7 @@ a:hover {
   bottom: 0;
   height: 2rem;
   width: 100%;
-  background-color: var(--red);
+  background-color: var(--red-lighter);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -129,7 +136,6 @@ a:hover {
 }
 
 .footer-text a {
-  color: white;
 }
 
 .loader {
@@ -179,22 +185,37 @@ a:hover {
 
 @media screen and (max-width: 800px) {
   .sidebar {
-    position: sticky;
-    top: initial;
-    bottom: 0;
-    height: 200px;
-    width: 100%;
-    border-top: 2px solid black;
-    border-right: none;
-    padding-top: 10px;
+    display: none;
   }
 
   .cyclobrowsing {
-    width: 100%;
-    display: initial;
+    margin-bottom: 60vh;
   }
 
   .logo {
     display: none;
+  }
+
+  .footer {
+    height: 2.5rem;
+
+    justify-content: center;
+    position: static;
+  }
+
+  .footer-text {
+    font-size: 10px;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+  }
+
+  .map {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+  }
+
+  .info-content {
+    font-size: 10px;
   }
 }

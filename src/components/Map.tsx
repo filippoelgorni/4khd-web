@@ -8,7 +8,7 @@ import {
   Marker,
   ZoomableGroup,
 } from "react-simple-maps";
-import ParentSize from "@visx/responsive/lib/components/ParentSizeModern";
+import { ParentSize } from "@visx/responsive";
 
 import "./style.css";
 
@@ -16,11 +16,13 @@ export const RED = "#ec1556";
 
 export const Map = memo(
   ({
-    style,
     coordinates,
+    style,
+    className,
   }: {
     coordinates: [number, number][];
     style?: React.CSSProperties;
+    className?: string;
   }) => {
     const geoUrl = "./../geo/topo.json";
 
@@ -29,13 +31,13 @@ export const Map = memo(
     const currentPosition = coordinates[coordinates.length - 1];
 
     return (
-      <div style={style}>
+      <div style={style} className={className}>
         <ParentSize>
           {({ width, height }) => {
             const isMobile = width <= 800;
 
-            const scale = isMobile ? 2200 : 1600;
-            const verticalTilt = isMobile ? 35 : 44;
+            const scale = false ? 2200 : 1600;
+            const verticalTilt = false ? 35 : 44;
             return (
               !isLoading && (
                 <svg width={width} height={height}>
@@ -53,8 +55,8 @@ export const Map = memo(
                               key={geo.rsmKey}
                               geography={geo}
                               fill="white"
-                              stroke="black"
-                              strokeWidth={1.5}
+                              stroke="#cccccc"
+                              strokeWidth={1}
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             />
