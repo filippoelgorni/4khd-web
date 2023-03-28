@@ -174,6 +174,17 @@ a:hover {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
+.info-content-text {
+  padding: 0 30px;
+  background-color: white;
+}
+
+.cyclobrowsing {
+  height: 100px;
+  width: calc(100% - 1rem);
+}
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
@@ -189,7 +200,10 @@ a:hover {
   }
 
   .cyclobrowsing {
-    margin-bottom: 60vh;
+    position: fixed;
+    top: 0px;
+    padding: 1rem;
+    z-index: 2;
   }
 
   .logo {
@@ -198,9 +212,9 @@ a:hover {
 
   .footer {
     height: 2.5rem;
-
     justify-content: center;
-    position: static;
+    /* position: static; */
+    z-index: 3;
   }
 
   .footer-text {
@@ -212,10 +226,19 @@ a:hover {
     height: 100vh;
     position: fixed;
     top: 0;
-    z-index: -1;
+    z-index: 1;
   }
 
   .info-content {
     font-size: 10px;
+    position: relative;
+  }
+
+  .info-content-text {
+    box-shadow: 5px -5px 50px -1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 5px -5px 50px -1px rgba(0, 0, 0, 0.2);
+    margin-top: 80vh;
+    padding-bottom: 1rem;
+    z-index: 2;
   }
 }
