@@ -24,8 +24,6 @@ function App() {
   const [isStatsShown, setIsStatsShown] = useState<Boolean>(false);
 
   useEffect(() => {
-    //  for f in ./public/maps\ data/*.csv; do sed -i ''  '1d' $f; done delete first line in csv bash
-
     const datasetPromises = range(1, days).map((day) => {
       const path = `./../data/stats_day${day}.csv`;
       return csv(path)
@@ -57,15 +55,11 @@ function App() {
       .then((res) => setDataset(res));
   }, [days]);
 
-  function compressDataset<A>(dataset: A[], granularity: number) {
-    return dataset.filter((_, i) => (i + 1) % granularity === 0);
-  }
   const coordinates = dataset.map(
     (d) => [d.longitude, d.latitude] as [number, number]
   );
-  const compressedCoordinates = compressDataset(coordinates, 300);
 
-  const isLoading = compressedCoordinates.length !== 0;
+  const isLoading = coordinates.length !== 0;
 
   return (
     <ParentSize>
@@ -76,7 +70,7 @@ function App() {
           <div className="container">
             {isLoading ? (
               <>
-                <Map coordinates={compressedCoordinates} className="map" />
+                <Map coordinates={coordinates} className="map" />
                 <Logo
                   logo="4khd"
                   style={{
