@@ -6,7 +6,9 @@ Run:
 
 `yarn`
 
-to download dependencies. Run:
+to download dependencies. 
+
+Run:
 
 `yarn start`
 
