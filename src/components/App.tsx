@@ -70,7 +70,9 @@ function App() {
           <div className="container">
             {isLoading ? (
               <>
-                <Map coordinates={coordinates} className="map" />
+                {navigator.userAgent !== "ReactSnap" && (
+                  <Map coordinates={coordinates} className="map" />
+                )}
                 <Logo
                   logo="4khd"
                   style={{
