@@ -46,7 +46,15 @@ export const Map = memo(
                     }}
                   >
                     <ZoomableGroup>
-                      <Geographies geography={geoUrl}>
+                      <Geographies
+                        geography={geoUrl}
+                        style={{
+                          display:
+                            navigator.userAgent !== "ReactSnap"
+                              ? "auto"
+                              : "none",
+                        }}
+                      >
                         {({ geographies }) =>
                           geographies.map((geo) => (
                             <Geography
