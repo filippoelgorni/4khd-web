@@ -20,7 +20,6 @@ function App() {
   const days = today.diff(firstDay, "days");
 
   const [dataset, setDataset] = useState<Dataset>([]);
-  const [isStatsShown, setIsStatsShown] = useState<Boolean>(false);
 
   useEffect(() => {
     const datasetPromises = range(1, days).map((day) => {
