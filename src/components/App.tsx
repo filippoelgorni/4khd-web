@@ -3,7 +3,6 @@ import { compact, range } from "lodash";
 import moment from "moment";
 import { Map } from "./Map";
 import { csv } from "d3";
-
 import "./style.css";
 import { Logo } from "./Logo";
 import { Footer } from "./Footer";
@@ -70,38 +69,24 @@ function App() {
           <div className="container">
             {isLoading ? (
               <>
-                <Map coordinates={coordinates} className="map" />
+                <Map
+                  coordinates={coordinates}
+                  isMobile={isMobile}
+                  className="map"
+                />
+                <Footer />
                 <Logo
                   logo="4khd"
                   style={{
                     position: "absolute",
-                    left: 50,
-                    top: 0,
+                    left: 40,
+                    bottom: 60,
                     width: 200,
-                    height: 200,
                   }}
                   className="logo"
                 />
-                {!isMobile && <Footer />}
-                {!isMobile && (
-                  <div
-                    style={{
-                      transform: `translateX(${isStatsShown ? 0 : -350}px)`,
-                      transition: "250ms transform",
-                    }}
-                    className="sidebar"
-                    onClick={() => setIsStatsShown(!isStatsShown)}
-                  >
-                    <InfoContent dataset={dataset} coordinates={coordinates} />
-                    <div className="clickable-invisible-sidebar" />
-                  </div>
-                )}
-                {isMobile && (
-                  <div className="bottom-info">
-                    <InfoContent dataset={dataset} coordinates={coordinates} />
-                    <Footer />
-                  </div>
-                )}
+                <p className="title">dove sei Igor</p>
+                <InfoContent coordinates={coordinates} dataset={dataset} />
               </>
             ) : (
               <Loader />

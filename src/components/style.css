@@ -6,11 +6,17 @@ html {
 }
 
 * {
-  font-family: "Arial";
+  font-family: "IBM Plex Mono", mono;
+  font-weight: 500;
   letter-spacing: 0.3px;
   --red: #ec1556;
   --red-lighter: #efefef;
   --gray: #a6a6a6;
+}
+
+::selection {
+  background: var(--red);
+  color: white;
 }
 
 @-webkit-keyframes pulse {
@@ -53,7 +59,7 @@ a:hover {
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -103,8 +109,39 @@ a:hover {
   /* padding-top: 85vh; */
 }
 
+.info-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: background-color 250ms;
+}
+
+.info-container:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 .info-content {
+  pointer-events: auto;
   overflow-y: auto;
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 50%;
+  font-size: 13px;
+}
+
+.info-content:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.info-content:hover {
+  /* -webkit-box-shadow: 0px 0px 33px 50px rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 33px 50px rgba(255, 255, 255, 0.9); */
 }
 
 .info-row {
@@ -112,7 +149,7 @@ a:hover {
   flex-direction: row;
   justify-content: space-between;
   padding: 0.5rem 0;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--red);
 }
 
 .footer {
@@ -120,7 +157,7 @@ a:hover {
   bottom: 0;
   height: 2rem;
   width: 100%;
-  background-color: var(--red-lighter);
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -133,9 +170,6 @@ a:hover {
   align-self: center;
   display: inline;
   padding-right: 1rem;
-}
-
-.footer-text a {
 }
 
 .loader {
@@ -177,12 +211,28 @@ a:hover {
 
 .info-content-text {
   padding: 0 30px;
-  background-color: white;
+  color: var(--red);
 }
 
 .cyclobrowsing {
   height: 100px;
   width: calc(100% - 1rem);
+}
+
+.stats {
+  padding-top: 2rem;
+  width: 50%;
+  min-width: 280px;
+}
+
+.title {
+  position: absolute;
+  font-family: "My Soul";
+  top: 0;
+  left: 20px;
+  font-size: 150px;
+  margin: 0;
+  color: var(--red);
 }
 
 @keyframes lds-ring {
@@ -195,26 +245,15 @@ a:hover {
 }
 
 @media screen and (max-width: 800px) {
-  .sidebar {
-    display: none;
-  }
-
-  .cyclobrowsing {
-    position: fixed;
-    top: 0px;
-    padding: 1rem;
-    z-index: 2;
-  }
-
-  .logo {
-    display: none;
-  }
-
   .footer {
     height: 2.5rem;
     justify-content: center;
-    /* position: static; */
+    position: fixed;
     z-index: 3;
+  }
+
+  .footer:active {
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   .footer-text {
@@ -226,19 +265,37 @@ a:hover {
     height: 100vh;
     position: fixed;
     top: 0;
-    z-index: 1;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .info-container {
+    pointer-events: none;
   }
 
   .info-content {
     font-size: 10px;
     position: relative;
+    width: 100%;
+    left: 0;
+  }
+
+  .stats {
+    width: 100%;
+    min-width: 0;
   }
 
   .info-content-text {
-    box-shadow: 5px -5px 50px -1px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 5px -5px 50px -1px rgba(0, 0, 0, 0.2);
     margin-top: 80vh;
     padding-bottom: 1rem;
-    z-index: 2;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 2rem;
   }
 }
