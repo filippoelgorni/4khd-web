@@ -288,6 +288,7 @@ a:hover {
     position: relative;
     width: 100%;
     left: 0;
+    pointer-events: none;
   }
 
   .stats {
@@ -300,7 +301,8 @@ a:hover {
     padding-bottom: 1rem;
     display: flex;
     flex-direction: column-reverse;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
     transition: background-color 500ms;
+    pointer-events: auto;
   }
 }
