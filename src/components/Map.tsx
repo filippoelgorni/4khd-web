@@ -49,10 +49,14 @@ export const Map = memo(
               opacity: navigator.userAgent !== "ReactSnap" ? 1 : 0,
               height: "100%",
               width: "100%",
+              backgroundColor: "white",
             }}
           >
-            <ZoomableGroup>
-              <Geographies geography={geoUrl}>
+            <ZoomableGroup style={{ backgroundColor: "white" }}>
+              <Geographies
+                style={{ backgroundColor: "white" }}
+                geography={geoUrl}
+              >
                 {({ geographies }) =>
                   geographies.map((geo) => (
                     <Geography

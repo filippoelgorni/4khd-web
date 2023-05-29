@@ -3,6 +3,7 @@ html {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-color: white;
 }
 
 * {
@@ -10,8 +11,7 @@ html {
   font-weight: 500;
   letter-spacing: 0.3px;
   --red: #ec1556;
-  --red-lighter: #efefef;
-  --gray: #a6a6a6;
+  --gray-lighter: #efefef;
 }
 
 ::selection {
@@ -300,6 +300,7 @@ a:hover {
     padding-bottom: 1rem;
     display: flex;
     flex-direction: column-reverse;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    transition: background-color 500ms;
   }
 }
