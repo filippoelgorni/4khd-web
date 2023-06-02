@@ -78,9 +78,9 @@ function App() {
                   logo="4khd"
                   style={{
                     position: "absolute",
-                    left: 40,
-                    bottom: 60,
-                    width: 200,
+                    left: 20,
+                    bottom: 20,
+                    width: 140,
                   }}
                   className="logo"
                 />

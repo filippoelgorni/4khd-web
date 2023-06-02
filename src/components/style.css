@@ -157,7 +157,6 @@ a:hover {
   bottom: 0;
   height: 2rem;
   width: 100%;
-  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -228,7 +227,7 @@ a:hover {
 .title {
   position: absolute;
   font-family: "My Soul";
-  top: 0;
+  top: -30px;
   left: 20px;
   font-size: 150px;
   margin: 0;
@@ -250,6 +249,7 @@ a:hover {
     justify-content: center;
     position: fixed;
     z-index: 3;
+    background-color: white;
   }
 
   .info-content-text:active {
@@ -272,7 +272,12 @@ a:hover {
   }
 
   .title {
-    display: none;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    font-size: 60px;
+    text-align: center;
   }
 
   .logo {
