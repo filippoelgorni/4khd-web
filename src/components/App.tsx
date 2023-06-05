@@ -73,7 +73,6 @@ function App() {
                   isMobile={isMobile}
                   className="map"
                 />
-                <Footer />
                 <Logo
                   logo="4khd"
                   style={{
@@ -86,6 +85,7 @@ function App() {
                 />
                 <p className="title">dove sei Igor</p>
                 <InfoContent coordinates={coordinates} dataset={dataset} />
+                <Footer className="desktop" />
               </>
             ) : (
               <Loader />

@@ -152,6 +152,10 @@ a:hover {
   border-top: 1px solid var(--red);
 }
 
+.footer.mobile {
+  display: none;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -244,12 +248,20 @@ a:hover {
 }
 
 @media screen and (max-width: 800px) {
+  .footer.mobile {
+    display: block;
+  }
+  .footer.desktop {
+    display: none;
+  }
+
   .footer {
     height: 2.5rem;
     justify-content: center;
-    position: fixed;
     z-index: 3;
-    background-color: white;
+    background-color: transparent;
+    width: auto;
+    color: black;
   }
 
   .info-content-text:active {
@@ -262,7 +274,6 @@ a:hover {
 
   .footer-text {
     font-size: 10px;
-    padding: 0.5rem 0.5rem 1rem 0.5rem;
   }
 
   .map {

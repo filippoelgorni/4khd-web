@@ -1,8 +1,8 @@
 import "./style.css";
 
-export function Footer() {
+export function Footer({ className }: { className?: string }) {
   return (
-    <footer className="footer">
+    <footer className={`footer ${className}`}>
       <p className="footer-text">
         High resolution, low performances. Find out more:&nbsp;
         <a href="https://www.instagram.com/4khd__/">instagram</a>

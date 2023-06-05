@@ -1,6 +1,7 @@
 import { geoDistance } from "d3";
 import { max, min, sum } from "lodash";
 import { Dataset } from "./App";
+import { Footer } from "./Footer";
 
 export function InfoContent({
   dataset,
@@ -90,6 +91,7 @@ export function InfoContent({
                   </div>
                 )}
               </div>
+              <Footer className="mobile" />
             </div>
           </div>
         </div>
