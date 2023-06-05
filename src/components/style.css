@@ -247,7 +247,24 @@ a:hover {
   }
 }
 
+.carousel {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  overflow-y: scroll;
+}
+
+.carousel img {
+  width: 100%;
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 800px) {
+  .carousel {
+    display: none;
+  }
   .footer.mobile {
     display: block;
   }

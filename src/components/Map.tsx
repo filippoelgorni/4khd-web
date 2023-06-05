@@ -31,6 +31,7 @@ export const Map = memo(
     const currentPosition = coordinates[coordinates.length - 1];
     const scale = isMobile ? 1600 : 1000;
     const verticalTilt = isMobile ? 5 : 0;
+    const horizontalTilt = isMobile ? 0 : -15;
 
     return (
       <div style={style} className={className}>
@@ -39,7 +40,7 @@ export const Map = memo(
             projection="geoMercator"
             projectionConfig={{
               rotate: [
-                -currentPosition[0],
+                -currentPosition[0] + horizontalTilt,
                 -currentPosition[1] + verticalTilt,
                 0,
               ],
