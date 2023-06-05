@@ -61,6 +61,11 @@ export const Map = memo(
                 {({ geographies }) =>
                   geographies.map((geo) => (
                     <Geography
+                      style={{
+                        default: { outline: "none" },
+                        hover: { outline: "none" },
+                        pressed: { outline: "none" },
+                      }}
                       key={geo.rsmKey}
                       geography={geo}
                       fill="#F2F2F2"
