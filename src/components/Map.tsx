@@ -30,8 +30,8 @@ export const Map = memo(
 
     const currentPosition = coordinates[coordinates.length - 1];
     const scale = isMobile ? 1600 : 1000;
-    const verticalTilt = isMobile ? 5 : 0;
-    const horizontalTilt = isMobile ? 0 : -15;
+    const verticalTilt = isMobile ? 5 : 5;
+    const horizontalTilt = isMobile ? 0 : -25;
 
     return (
       <div style={style} className={className}>

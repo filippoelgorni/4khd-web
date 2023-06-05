@@ -258,10 +258,23 @@ a:hover {
 
 .carousel img {
   width: 100%;
-  opacity: 0.8;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.carousel-mobile {
+  display: none;
 }
 
 @media screen and (max-width: 800px) {
+  .carousel-mobile {
+    display: block;
+  }
+
+  .carousel-mobile img {
+    width: 100%;
+  }
+
   .carousel {
     display: none;
   }

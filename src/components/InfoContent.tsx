@@ -23,16 +23,21 @@ export function InfoContent({
           }}
         >
           <div className="info-content-text">
+            <div className="carousel-mobile">
+              <img
+                src="./assets/carousel.png"
+                alt="Igor chilling while he travels"
+              />
+            </div>
             <p>
-              Who is Igor? Igor is a digital avatar born from the minds of 4KHD,
-              a collective that plays with irony, the digital domain, and
-              sports. He has decided to travel with his bike in a scripted
-              fashion, with only code telling him where to go. His mission is
-              that of bringing a new aesthetic to its sport, coded in his
-              “anti-chad manifesto”. Where is Igor? Our digital friend still
-              cycling around Europe, and you can read the daily bulletin on
-              twitter to know his daily stats, along with other fun bots. This
-              is “Cyclobrowsing”.
+              Igor is a digital avatar born from the minds of 4KHD, a collective
+              that plays with irony, the digital domain, and sports. He has
+              decided to travel with his bike in a scripted fashion, with only
+              code telling him where to go. His mission is that of bringing a
+              new aesthetic to its sport, coded in his “anti-chad manifesto”.
+              Where are you Igor? Our digital friend still cycling around
+              Europe, and you can read the daily bulletin on twitter to know his
+              daily stats.
             </p>
             <div className="stats">
               <div className="info-row">
@@ -91,8 +96,8 @@ export function InfoContent({
                   </div>
                 )}
               </div>
-              <Footer className="mobile" />
             </div>
+            <Footer className="mobile" />
           </div>
         </div>
       </div>
