@@ -85,7 +85,10 @@ function App() {
                 />
                 <p className="title">dove sei Igor</p>
                 <div className="carousel">
-                  <img src="./assets/carousel.png" />
+                  <img
+                    src="./assets/carousel.png"
+                    alt="Igor chilling while he travels"
+                  />
                 </div>
                 <InfoContent coordinates={coordinates} dataset={dataset} />
                 <Footer className="desktop" />
