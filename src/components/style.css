@@ -260,6 +260,8 @@ a:hover {
   width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 .carousel-mobile {
@@ -269,6 +271,8 @@ a:hover {
 @media screen and (max-width: 800px) {
   .carousel-mobile {
     display: block;
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 
   .carousel-mobile img {
@@ -317,7 +321,7 @@ a:hover {
     width: 100%;
     left: 0;
     top: 0;
-    font-size: 60px;
+    font-size: 65px;
     text-align: center;
   }
 

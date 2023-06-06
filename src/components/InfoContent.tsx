@@ -31,13 +31,12 @@ export function InfoContent({
             </div>
             <p>
               Igor is a digital avatar born from the minds of 4KHD, a collective
-              that plays with irony, the digital domain, and sports. He has
-              decided to travel with his bike in a scripted fashion, with only
-              code telling him where to go. His mission is that of bringing a
-              new aesthetic to its sport, coded in his “anti-chad manifesto”.
-              Where are you Igor? Our digital friend still cycling around
-              Europe, and you can read the daily bulletin on twitter to know his
-              daily stats.
+              that plays with irony, digital domain and sport. He has decided to
+              travel with his bicycle in a scripted fashion, with only the code
+              telling him where to go. His mission is to bring a new aesthetic
+              to cycling, codified in his 'anti-chad manifesto'. Where are you,
+              Igor? Our digital friend is still cycling around Europe and you
+              can read the daily bulletin on twitter for his stats.
             </p>
             <div className="stats">
               <div className="info-row">
