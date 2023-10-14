@@ -1,8 +1,9 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
+
+import "./components/style.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <BrowserRouter>
-  <App />
+    <App />
   </BrowserRouter>
 );
 

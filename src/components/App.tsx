@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Cyclobrowsing from "./cyclobrowsing/Cyclobrowsing";
 
-import "./style.css";
+import "./style.scss";
 
 function App() {
   return <div>

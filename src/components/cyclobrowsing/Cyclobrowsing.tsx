@@ -9,7 +9,7 @@ import { Loader } from "./Loader";
 import { ParentSize } from "@visx/responsive";
 import { InfoContent } from "./InfoContent";
 
-import "../style.css";
+import "../style.scss";
 
 type Datum = { longitude: number; latitude: number; altitude: number };
 export type Dataset = Datum[];
