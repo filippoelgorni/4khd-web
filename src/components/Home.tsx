@@ -8,8 +8,6 @@ import { useState } from "react";
 
 function Home() {
 
-  const [isLoading, setIsLoading] = useState(true)
-
   const [projectsRaw] = useAllPrismicDocumentsByType('project')
   const projects = projectsRaw?.map(p=>p.data)
 
@@ -18,7 +16,7 @@ function Home() {
     <div className="home">
       <Link to="/cyclobrowsing">cyclobrowsing</Link>
       <div className="project-titles">
-      {projects?.map(p=><img src={p.title_svg.url} className="project-title"/>)}
+      {projects?.map(p=><img src={p.title_svg.url} className="project-title" alt=''/>)}
       </div>
       <footer className="footer">
         <div className="footer-content">
