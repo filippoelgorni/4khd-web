@@ -261,95 +261,6 @@ html {
   .carousel-mobile {
     display: none;
   }
-
-  @media screen and (max-width: 800px) {
-    .carousel-mobile {
-      display: block;
-      margin-left: -1rem;
-      margin-right: -1rem;
-    }
-
-    .carousel-mobile img {
-      width: 100%;
-    }
-
-    .carousel {
-      display: none;
-    }
-    .footer.mobile {
-      display: block;
-    }
-    .footer.desktop {
-      display: none;
-    }
-
-    .footer {
-      height: 2.5rem;
-      justify-content: center;
-      z-index: 3;
-      background-color: transparent;
-      width: auto;
-      color: black;
-    }
-
-    .info-content-text:active {
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    .info-container:hover {
-      background-color: transparent;
-    }
-
-    .footer-text {
-      font-size: 10px;
-    }
-
-    .map {
-      height: 100vh;
-      position: fixed;
-      top: 0;
-    }
-
-    .title {
-      position: fixed;
-      width: 100%;
-      left: 0;
-      top: 0;
-      font-size: 65px;
-      text-align: center;
-    }
-
-    .logo {
-      display: none;
-    }
-
-    .info-container {
-      pointer-events: none;
-    }
-
-    .info-content {
-      font-size: 10px;
-      position: relative;
-      width: 100%;
-      left: 0;
-      pointer-events: none;
-    }
-
-    .stats {
-      width: 100%;
-      min-width: 0;
-    }
-
-    .info-content-text {
-      margin-top: 60vh;
-      padding-bottom: 1rem;
-      display: flex;
-      flex-direction: column-reverse;
-      padding-bottom: 5rem;
-      transition: background-color 500ms;
-      pointer-events: auto;
-    }
-  }
 }
 
 .home {
@@ -391,5 +302,97 @@ html {
     font-size: 18px;
     font-weight: 500;
     line-height: 21px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .cyclobrowsing {
+    .carousel-mobile {
+      display: block;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  
+    .carousel-mobile img {
+      width: 100%;
+    }
+  
+    .carousel {
+      display: none;
+    }
+    .footer.mobile {
+      display: block;
+    }
+    .footer.desktop {
+      display: none;
+    }
+  
+    .footer {
+      height: 2.5rem;
+      justify-content: center;
+      z-index: 3;
+      background-color: transparent;
+      width: auto;
+      color: black;
+    }
+  
+    .info-content-text:active {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  
+    .info-container:hover {
+      background-color: transparent;
+    }
+  
+    .footer-text {
+      font-size: 10px;
+    }
+  
+    .map {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+    }
+  
+    .title {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      font-size: 65px;
+      text-align: center;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .info-container {
+      pointer-events: none;
+    }
+  
+    .info-content {
+      font-size: 10px;
+      position: relative;
+      width: 100%;
+      left: 0;
+      pointer-events: none;
+    }
+  
+    .stats {
+      width: 100%;
+      min-width: 0;
+    }
+  
+    .info-content-text {
+      margin-top: 60vh;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column-reverse;
+      padding-bottom: 5rem;
+      transition: background-color 500ms;
+      pointer-events: auto;
+    }
   }
 }
