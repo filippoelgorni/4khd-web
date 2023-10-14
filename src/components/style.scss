@@ -284,6 +284,61 @@ html {
     box-shadow: 0px 0px 50px 40px var(--blue);
   }
 
+  .flying-igor {
+    position: absolute;
+    right:0;
+    bottom: 5rem;
+    text-decoration: none;
+  }
+  
+  .flying-igor-image {
+    height: 200px;
+    transform: scaleX(-1)
+  }
+
+  .where-are-you {
+    color: var(--blue);
+    font-size: 18px;
+    transform: rotate(10deg);
+  }
+
+  .carousel {
+    width: 700px;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 2rem;
+    top: 0;
+    overflow-y: scroll;
+  }
+
+  .carousel-content {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    color: var(--blue);
+    font-weight: 500;
+  }
+
+  .carousel-image {
+    border-radius: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .carousel-description {
+    padding-top: 2rem;
+    font-size: 22px;
+    padding-bottom: 8rem;
+  }
+
+  .carousel-footer {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .footer {
     position: absolute;
     bottom: 0;
