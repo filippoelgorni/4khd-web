@@ -2,6 +2,8 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
+import { PrismicProvider } from '@prismicio/react'
+import { client } from './prismic'
 
 import "./components/style.scss";
 
@@ -13,7 +15,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <BrowserRouter>
+  <PrismicProvider client={client}>
     <App />
+  </PrismicProvider>
   </BrowserRouter>
 );
 

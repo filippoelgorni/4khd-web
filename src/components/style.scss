@@ -303,6 +303,17 @@ html {
     font-weight: 500;
     line-height: 21px;
   }
+
+  .project-titles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .project-title {
+    height: 50px;
+  }
 }
 
 
