@@ -1,4 +1,3 @@
-import { title } from "process";
 import "./style.scss";
 
 export function Carousel({
