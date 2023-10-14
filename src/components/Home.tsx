@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {useAllPrismicDocumentsByType} from '@prismicio/react'
 
 import "./style.scss";
-import { useState } from "react";
 
 
 
