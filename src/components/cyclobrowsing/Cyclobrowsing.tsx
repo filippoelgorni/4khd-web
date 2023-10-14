@@ -3,12 +3,13 @@ import { compact, range } from "lodash";
 import moment from "moment";
 import { Map } from "./Map";
 import { csv } from "d3";
-import "./style.css";
 import { Logo } from "./Logo";
 import { Footer } from "./Footer";
 import { Loader } from "./Loader";
 import { ParentSize } from "@visx/responsive";
 import { InfoContent } from "./InfoContent";
+
+import "../style.css";
 
 type Datum = { longitude: number; latitude: number; altitude: number };
 export type Dataset = Datum[];
@@ -60,7 +61,7 @@ function Cyclobrowsing() {
   const isLoading = coordinates.length !== 0;
 
   return (
-    <ParentSize>
+    <ParentSize className="cyclobrowsing">
       {({ width }) => {
         const isMobile = width < 800;
 
