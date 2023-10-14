@@ -1,6 +1,6 @@
 import { geoDistance } from "d3";
 import { max, min, sum } from "lodash";
-import { Dataset } from "./App";
+import { Dataset } from "./Cyclobrowsing";
 import { Footer } from "./Footer";
 
 export function InfoContent({

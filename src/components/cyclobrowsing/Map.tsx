@@ -8,7 +8,7 @@ import {
   Marker,
   ZoomableGroup,
 } from "react-simple-maps";
-import "./style.css";
+import "../style.css";
 
 export const RED = "#ec1556";
 
