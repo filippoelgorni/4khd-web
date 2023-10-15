@@ -1,28 +1,26 @@
+import { Project } from "./Home";
+import { X } from "./X";
 import "./style.scss";
 
 export function Carousel({
-  titleImageUrl,
-  title,
-  images,
-  description,
-  credits,
-  year,
+    project,
+    onClick,
 }: {
-    titleImageUrl: string,
-    title: string,
-    images: string[];
-    description: string;
-    credits: string;
-    year: number;
+    project: Project
+    onClick: () => void
 }) {
   return <div className="carousel">
     <div className="carousel-content">
-    {images.map(image=> <img src={image} className="carousel-image" alt="" />)}
-    <div className='carousel-description'>{description}</div>
+    <div className="carousel-x" onClick={onClick}>
+        <X/>
+    </div>
+    <img src={project.titleImageUrl} className="carousel-title" alt={project.title} />
+    {project.imagesUrls.map((url, i)=> <img src={url} className="carousel-image" alt={`carousel-image-${i}`} key={url}/>)}
+    <div className='carousel-description'>{project.description}</div>
     <div  className="carousel-footer">
-    <div >{title}</div>
-    <div >{credits}</div>
-    <div >{year}</div>
+    <div >{project.title}</div>
+    <div >{project.authors}</div>
+    <div >{project.year}</div>
     </div>
     </div>
   </div>

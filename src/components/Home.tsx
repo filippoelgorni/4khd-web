@@ -3,35 +3,54 @@ import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { Carousel } from "./Carousel";
 
 import "./style.scss";
+import { useState } from "react";
+import { sortBy } from "lodash";
+
+export type Project = {
+  authors: string
+  imagesUrls: string[]
+  description: string
+  titleImageUrl: string
+  title: string
+  year:  number
+}
+
+function formatProjectData(project: any): Project {
+  return {
+    authors: project.authors.flatMap((d:any)=>d.text),
+    imagesUrls: project.images.map((image: any) => image.image.url),
+    description: project.description.flatMap((d:any)=>d.text),
+    titleImageUrl: project.title_image.url,
+    title: project.project_name.flatMap((d:any)=>d.text),
+    year:  project.year
+  }
+}
 
 function Home() {
   const [projectsRaw] = useAllPrismicDocumentsByType("project");
-  const projects = projectsRaw?.map((p) => p.data);
+  const projects = sortBy(projectsRaw?.map((p) => formatProjectData(p.data)), 'year').reverse();
 
-  const selectedProject = projects?.[1];
-  console.log("✌️selectedProject --->", selectedProject);
+  const [selectedProject, setSelectedProject] = useState<null | Project>(null)
 
   return (
     <div className="home">
       <Link to="/cyclobrowsing" className="flying-igor">
-      <div className="where-are-you">Ma dove sei frate?</div>
-      <img src="./assets/igor.png" alt='igor' className="flying-igor-image"/>
+        <div className="where-are-you">Ma dove sei frate?</div>
+        <img src="./assets/igor.png" alt='igor' className="flying-igor-image"/>
       </Link>
       <div className="project-titles">
         {projects?.map((p) => (
-          <img src={p.title_svg.url} className="project-title" alt="" />
+          <img src={p.titleImageUrl} className="project-title" alt={p.title} onClick={()=>setSelectedProject(p)} />
         ))}
       </div>
+      <div className="home-titles">
       {selectedProject && (
         <Carousel
-          credits={selectedProject.authors[0].text}
-          images={selectedProject.images.map((image: any) => image.image.url)}
-          description={selectedProject.description.flatMap((d:any)=>d.text)}
-          titleImageUrl={selectedProject.title_svg.url}
-          title={selectedProject.project_name[0].text}
-          year={selectedProject.year}
+        project={selectedProject}
+        onClick={()=>setSelectedProject(null)}
         />
-      )}
+        )}
+      </div>
       <footer className="footer">
         <div className="footer-content">
           4KHD is a group of people and an ever-changing idea. We exist in

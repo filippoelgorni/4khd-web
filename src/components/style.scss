@@ -312,6 +312,25 @@ html {
     overflow-y: scroll;
   }
 
+  .carousel-title {
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    z-index: 1;
+    height: 50px;
+    max-width: 80%;
+    object-fit: contain;
+  }
+  
+  .carousel-x {
+    position: absolute;
+    top: 4.5rem;
+    right: 2rem;
+    z-index: 1;
+    height: 50px;
+    cursor: pointer;
+  }
+
   .carousel-content {
     padding-top: 1rem;
     padding-bottom: 5rem;
@@ -363,11 +382,20 @@ html {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .project-titles {
+    padding-top: 2rem;
   }
 
   .project-title {
-    height: 50px;
+    height: 100px;
+    max-width: 900px;
+    object-fit: contain;
+    cursor: pointer;
+    margin-bottom: -1rem;
   }
 }
 
