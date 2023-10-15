@@ -310,6 +310,11 @@ html {
     left: 2rem;
     top: 0;
     overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  .carousel::-webkit-scrollbar{
+    display: none;
   }
 
   .carousel-title {
