@@ -328,9 +328,9 @@ html {
   }
   
   .carousel-x {
-    position: absolute;
+    position: fixed;
     top: 4.5rem;
-    right: 2rem;
+    left: calc(700px - 2rem);
     z-index: 1;
     height: 50px;
     cursor: pointer;

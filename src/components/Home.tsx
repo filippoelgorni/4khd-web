@@ -40,7 +40,7 @@ function Home() {
       </Link>
       <div className="project-titles">
         {projects?.map((p) => (
-          <img src={p.titleImageUrl} className="project-title" alt={p.title} onClick={()=>setSelectedProject(p)} />
+          <img src={p.titleImageUrl} className="project-title" alt={p.title} onClick={()=>setSelectedProject(p)} key={p.title} />
         ))}
       </div>
       <div className="home-titles">
