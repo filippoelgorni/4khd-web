@@ -43,13 +43,13 @@ function Home() {
           <img src={p.titleImageUrl} className="project-title" alt={p.title} onClick={()=>setSelectedProject(p)} key={p.title} />
         ))}
       </div>
-      <div className="home-titles">
       {selectedProject && (
         <Carousel
         project={selectedProject}
         onClick={()=>setSelectedProject(null)}
         />
         )}
+      <div className="home-titles">
       </div>
       <footer className="footer">
         <div className="footer-content">
