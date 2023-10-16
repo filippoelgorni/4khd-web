@@ -319,12 +319,12 @@ html {
   }
 
   .carousel-title {
-    position: absolute;
+    position: fixed;
     top: 4rem;
-    left: 2rem;
+    left: 4rem;
     z-index: 1;
     height: 50px;
-    max-width: 80%;
+    max-width: calc(700px - 8rem);
     object-fit: contain;
   }
   
@@ -390,9 +390,6 @@ html {
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
-  }
-
-  .project-titles {
     padding-top: 2rem;
   }
 
@@ -452,6 +449,12 @@ html {
 
   .carousel-footer {
     padding-bottom: 8rem;
+  }
+
+  .carousel-title {
+    max-height:  35px;
+    width: calc(100% - 4rem);
+    left: 2rem
   }
 }
 }
