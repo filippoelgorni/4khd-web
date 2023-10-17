@@ -19,7 +19,7 @@ export function Carousel({
         <div className='carousel-description'>{project.description}</div>
         <div  className="carousel-footer">
             <div >{project.title}</div>
-            <div >{project.authors}</div>
+            <div className="carousel-footer-authors">{project.authors}</div>
             <div >{project.year}</div>
         </div>
     </div>
