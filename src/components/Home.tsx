@@ -44,11 +44,12 @@ function Home() {
         ))}
       </div>
       {selectedProject && (
-        <Carousel
-        project={selectedProject}
-        onClick={()=>setSelectedProject(null)}
-        />
-        )}
+        <div className="carousel-background" onClick={()=>setSelectedProject(null)}/>)}
+      {selectedProject && (<Carousel
+      project={selectedProject}
+      onClick={()=>setSelectedProject(null)}
+      />
+      )}
       <div className="home-titles">
       </div>
       <footer className="footer">

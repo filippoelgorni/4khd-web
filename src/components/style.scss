@@ -290,6 +290,11 @@ html {
     right:0;
     bottom: 5rem;
     text-decoration: none;
+    transition: transform 500ms;
+  }
+
+  .flying-igor:hover {
+    transform: translate(0, -10px);
   }
   
   .flying-igor-image {
@@ -312,6 +317,15 @@ html {
     top: 0;
     overflow-y: scroll;
     scrollbar-width: none;
+  }
+
+  .carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .carousel::-webkit-scrollbar{
@@ -399,6 +413,11 @@ html {
     object-fit: contain;
     cursor: pointer;
     margin-bottom: -1rem;
+    transition: transform 500ms ease-in-out;
+  }
+
+  .project-title:hover {
+    transform: rotate(3deg);
   }
 }
 
@@ -425,10 +444,10 @@ html {
     height: 100px;
   }
 
+
   .carousel {
     left:0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .carousel-content {
