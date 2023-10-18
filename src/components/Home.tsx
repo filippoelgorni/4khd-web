@@ -7,59 +7,87 @@ import { useState } from "react";
 import { sortBy } from "lodash";
 
 export type Project = {
-  authors: string
-  imagesUrls: string[]
-  description: string
-  titleImageUrl: string
-  title: string
-  year:  number
-}
+  authors: string;
+  imagesUrls: string[];
+  description: string;
+  titleImageUrl: string;
+  title: string;
+  year: number;
+};
 
 function formatProjectData(project: any): Project {
   return {
-    authors: project.authors.flatMap((d:any)=>d.text),
+    authors: project.authors.flatMap((d: any) => d.text),
     imagesUrls: project.images.map((image: any) => image.image.url),
-    description: project.description.flatMap((d:any)=>d.text),
+    description: project.description.flatMap((d: any) => d.text),
     titleImageUrl: project.title_image.url,
-    title: project.project_name.flatMap((d:any)=>d.text),
-    year:  project.year
-  }
+    title: project.project_name.flatMap((d: any) => d.text),
+    year: project.year,
+  };
 }
 
 function Home() {
   const [projectsRaw] = useAllPrismicDocumentsByType("project");
-  const projects = sortBy(projectsRaw?.map((p) => formatProjectData(p.data)), 'year').reverse();
+  const projects = sortBy(
+    projectsRaw?.map((p) => formatProjectData(p.data)),
+    "year"
+  ).reverse();
 
-  const [selectedProject, setSelectedProject] = useState<null | Project>(null)
+  const [selectedProject, setSelectedProject] = useState<null | Project>(null);
 
   return (
     <div className="home">
       <Link to="/cyclobrowsing" className="flying-igor">
         <div className="where-are-you">Ma dove sei frate?</div>
-        <img src="./assets/igor.png" alt='igor' className="flying-igor-image"/>
+        <img src="./assets/igor.png" alt="igor" className="flying-igor-image" />
       </Link>
       <div className="project-titles">
         {projects?.map((p) => (
-          <img src={p.titleImageUrl} className="project-title" alt={p.title} onClick={()=>setSelectedProject(p)} key={p.title} />
+          <img
+            src={p.titleImageUrl}
+            className="project-title"
+            alt={p.title}
+            onClick={() => setSelectedProject(p)}
+            key={p.title}
+          />
         ))}
       </div>
       {selectedProject && (
-        <div className="carousel-background" onClick={()=>setSelectedProject(null)}/>)}
-      {selectedProject && (<Carousel
-      project={selectedProject}
-      onClick={()=>setSelectedProject(null)}
-      />
+        <div
+          className="carousel-background"
+          onClick={() => setSelectedProject(null)}
+        />
       )}
-      <div className="home-titles">
-      </div>
+      {selectedProject && (
+        <Carousel
+          project={selectedProject}
+          onClick={() => setSelectedProject(null)}
+        />
+      )}
+      <div className="home-titles"></div>
       <footer className="footer">
+        {/* <div className="footer-empty" /> */}
         <div className="footer-content">
-          4KHD is a group of people and an ever-changing idea. We exist in
-          movement and we articulate projects around this topic. We are the high
-          resolution of low performances.
+          <p>
+            4KHD is a newly discovered resolution that will never be released.
+            We exist in movement, while traveling, packing all we need in small
+            bags under the saddle. Since 2019 we articulate projects around the
+            topics of cycling, navigation and everything in between. We like to
+            define ourself as the high resolution of low performances, because
+            we better handle images instead of bikes.         
+            <br />
+          </p>
+          <p>
+            We are based in between Milano and Rotterdam.
+          <br />
+          </p>
+          <p>Reach us out for projects or collaborations<br></br>
+          <a href="4khdcc@gmail.com">[MAIL]</a> 4khdcc@gmail.com<br></br>
+          <a href="/www.instagram.com/4khd__/">[INSTAGRAM]</a> @4khd__
+          </p>
         </div>
       </footer>
-      <div className="bottom-shadow" />
+      {/* <div className="bottom-shadow" /> */}
     </div>
   );
 }
