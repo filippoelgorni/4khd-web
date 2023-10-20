@@ -37,57 +37,69 @@ function Home() {
 
   return (
     <div className="home">
-      <Link to="/cyclobrowsing" className="flying-igor">
-        <div className="where-are-you">Ma dove sei frate?</div>
-        <img src="./assets/igor.png" alt="igor" className="flying-igor-image" />
-      </Link>
-      <div className="project-titles">
-        {projects?.map((p) => (
+      <div className="container">
+        <Link to="/cyclobrowsing" className="flying-igor">
+          <div className="where-are-you">Ma dove sei frate?</div>
           <img
-            src={p.titleImageUrl}
-            className="project-title"
-            alt={p.title}
-            onClick={() => setSelectedProject(p)}
-            key={p.title}
+            src="./assets/igor.png"
+            alt="igor"
+            className="flying-igor-image"
           />
-        ))}
-      </div>
-      {selectedProject && (
-        <div
-          className="carousel-background"
-          onClick={() => setSelectedProject(null)}
-        />
-      )}
-      {selectedProject && (
-        <Carousel
-          project={selectedProject}
-          onClick={() => setSelectedProject(null)}
-        />
-      )}
-      <div className="home-titles"></div>
-      <footer className="footer">
-        {/* <div className="footer-empty" /> */}
-        <div className="footer-content">
-          <p>
-            4KHD is a newly discovered resolution that will never be released.
-            We exist in movement, while traveling, packing all we need in small
-            bags under the saddle. Since 2019 we articulate projects around the
-            topics of cycling, navigation and everything in between. We like to
-            define ourself as the high resolution of low performances, because
-            we better handle images instead of bikes.         
-            <br />
-          </p>
-          <p>
-            We are based in between Milano and Rotterdam.
-          <br />
-          </p>
-          <p>Reach us out for projects or collaborations<br></br>
-          <a href="4khdcc@gmail.com">[MAIL]</a> 4khdcc@gmail.com<br></br>
-          <a href="/www.instagram.com/4khd__/">[INSTAGRAM]</a> @4khd__
-          </p>
+        </Link>
+        <div className="project-titles">
+          {projects?.map((p) => (
+            <img
+              src={p.titleImageUrl}
+              className="project-title"
+              alt={p.title}
+              onClick={() => setSelectedProject(p)}
+              key={p.title}
+            />
+          ))}
         </div>
-      </footer>
-      {/* <div className="bottom-shadow" /> */}
+        {selectedProject && (
+          <div
+            className="carousel-background"
+            onClick={() => setSelectedProject(null)}
+          />
+        )}
+        {selectedProject && (
+          <Carousel
+            project={selectedProject}
+            onClick={() => setSelectedProject(null)}
+          />
+        )}
+
+        <div className="home-titles" />
+      </div>
+      <div className="footer-container">
+        <div className="footer-content">
+          <div className="footer-text-container">
+            <div className="footer-text">
+              <p>
+                4KHD is a newly discovered resolution that will never be
+                released. We exist in movement, while traveling, packing all we
+                need in small bags under the saddle. Since 2019 we articulate
+                projects around the topics of cycling, navigation and everything
+                in between. We like to define ourself as the high resolution of
+                low performances, because we better handle images instead of
+                bikes.
+                <br />
+              </p>
+              <p>
+                We are based in between Milano and Rotterdam.
+                <br />
+              </p>
+              <p>
+                Reach us out for projects or collaborations<br></br>
+                <a href="4khdcc@gmail.com">[MAIL]</a> 4khdcc@gmail.com
+                <br></br>
+                <a href="/www.instagram.com/4khd__/">[INSTAGRAM]</a> @4khd__
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
