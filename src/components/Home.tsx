@@ -94,7 +94,8 @@ function Home() {
                 Reach us out for projects or collaborations<br></br>
                 <a href="mailto:4khdcc@gmail.com">[MAIL]</a> 4khdcc@gmail.com
                 <br></br>
-                <a href="/www.instagram.com/4khd__/">[INSTAGRAM]</a> @4khd__
+                <a href="https://www.instagram.com/4khd__/">[INSTAGRAM]</a>{" "}
+                @4khd__
               </p>
             </div>
           </div>
